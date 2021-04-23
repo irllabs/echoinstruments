@@ -1,0 +1,491 @@
+#N canvas 91 111 1508 763 12;
+#X text 895 498 updated for Pd version 0.37;
+#X obj 545 456 dac~;
+#X obj 703 321 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 400 1;
+#X text 380 472 <-Click to start;
+#X obj 362 476 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 361 512 \; pd dsp \$1 \;;
+#X obj 453 82 key;
+#X obj 521 103 spigot;
+#X obj 558 67 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 162 91 1205 884 load-sound-files 0;
+#X obj 489 485 route symbol;
+#X msg 691 371 0;
+#X obj 650 403 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 719 491 5 0 0 0 - - -;
+#X obj 692 437 ali.counter 0 1000;
+#X obj 830 551 * 20;
+#X obj 487 406 ali.iter;
+#X obj 560 298 t a b;
+#X obj 256 842 soundfiler;
+#N canvas 0 23 682 812 array-center 0;
+#X obj 120 0 array define echo_a-ball.wav;
+#X obj 120 20 array define echo_a-ball2.wav;
+#X obj 120 40 array define echo_ah1.wav;
+#X obj 120 60 array define echo_ah2.wav;
+#X obj 120 80 array define echo_ah3.wav;
+#X obj 120 100 array define echo_anana.wav;
+#X obj 120 120 array define echo_aqua.wav;
+#X obj 120 140 array define echo_aqua2.wav;
+#X obj 120 160 array define echo_baba-whisper.wav;
+#X obj 120 180 array define echo_baba.wav;
+#X obj 120 200 array define echo_baba2.wav;
+#X obj 120 220 array define echo_baba3.wav;
+#X obj 120 240 array define echo_baba4.wav;
+#X obj 120 260 array define echo_baba6.wav;
+#X obj 120 280 array define echo_baby.wav;
+#X obj 120 300 array define echo_bayi.wav;
+#X obj 120 320 array define echo_bye1.wav;
+#X obj 120 340 array define echo_cake.wav;
+#X obj 120 360 array define echo_cake2.wav;
+#X obj 120 380 array define echo_choo-choo.wav;
+#X obj 120 400 array define echo_eh.wav;
+#X obj 120 420 array define echo_elbow.wav;
+#X obj 120 440 array define echo_giggle.wav;
+#X obj 120 460 array define echo_giggle2.wav;
+#X obj 120 480 array define echo_grunt.wav;
+#X obj 120 500 array define echo_hee-hee.wav;
+#X obj 120 520 array define echo_hi.wav;
+#X obj 120 540 array define echo_hot.wav;
+#X obj 120 560 array define echo_i-did-that.wav;
+#X obj 120 580 array define echo_i-did-that2.wav;
+#X obj 120 600 array define echo_ill-be-ba.wav;
+#X obj 120 620 array define echo_ill-be-back.wav;
+#X obj 120 640 array define echo_ill-di-da.wav;
+#X obj 120 660 array define echo_lemon.wav;
+#X obj 120 680 array define echo_ma-mi-ye.wav;
+#X obj 120 700 array define echo_mama.wav;
+#X obj 120 720 array define echo_mama2.wav;
+#X obj 120 740 array define echo_na-ni-ne.wav;
+#X obj 120 760 array define echo_na.wav;
+#X obj 120 780 array define echo_nah.wav;
+#X obj 120 800 array define echo_no.wav;
+#X obj 120 820 array define echo_outside.wav;
+#X obj 120 840 array define echo_outside3.wav;
+#X obj 120 860 array define echo_poo-poo.wav;
+#X obj 120 880 array define echo_uh.wav;
+#X obj 120 900 array define echo_umm1.wav;
+#X obj 120 920 array define echo_umm2.wav;
+#X obj 120 940 array define echo_umm3.wav;
+#X obj 120 960 array define echo_umm4.wav;
+#X obj 120 980 array define echo_umm5.wav;
+#X obj 120 1000 array define echo_umm6.wav;
+#X obj 120 1020 array define echo_umm7.wav;
+#X obj 120 1040 array define echo_umm8.wav;
+#X obj 120 1060 array define echo_ummm.wav;
+#X obj 120 1080 array define echo_wah.wav;
+#X restore 677 818 pd array-center;
+#X msg 678 781 \; pd-array-center obj 120 \$2 array define \$1;
+#X obj 544 629 pack s i;
+#X obj 470 555 t a a b;
+#X obj 232 780 cyclone/sprintf read -resize /Users/ali/Documents/Development/for-pd/echojam/sounds/%s
+%s;
+#X msg 23 256 echo_a-ball.wav echo_a-ball2.wav echo_ah1.wav echo_ah2.wav
+echo_ah3.wav echo_anana.wav echo_aqua.wav echo_aqua2.wav echo_baba-whisper.wav
+echo_baba.wav echo_baba2.wav echo_baba3.wav echo_baba4.wav echo_baba6.wav
+echo_baby.wav echo_bayi.wav echo_bye1.wav echo_cake.wav echo_cake2.wav
+echo_choo-choo.wav echo_eh.wav echo_elbow.wav echo_giggle.wav echo_giggle2.wav
+echo_grunt.wav echo_hee-hee.wav echo_hi.wav echo_hot.wav echo_i-did-that.wav
+echo_i-did-that2.wav echo_ill-be-ba.wav echo_ill-be-back.wav echo_ill-di-da.wav
+echo_lemon.wav echo_ma-mi-ye.wav echo_mama.wav echo_mama2.wav echo_na-ni-ne.wav
+echo_na.wav echo_nah.wav echo_no.wav echo_outside.wav echo_outside3.wav
+echo_poo-poo.wav echo_uh.wav echo_umm1.wav echo_umm2.wav echo_umm3.wav
+echo_umm4.wav echo_umm5.wav echo_umm6.wav echo_umm7.wav echo_umm8.wav
+echo_ummm.wav echo_wah.wav;
+#X msg 538 159 echo_a-ball.wav echo_a-ball2.wav;
+#X obj 23 512 outlet;
+#X msg 217 191 \; pd-array-center clear \;;
+#X obj 174 89 inlet;
+#X obj 170 142 t b b;
+#X text 629 134 for testing;
+#X connect 0 0 12 0;
+#X connect 1 0 4 2;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 11 1;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
+#X connect 7 1 1 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 12 1 11 0;
+#X connect 12 2 2 0;
+#X connect 13 0 8 0;
+#X connect 14 0 7 0;
+#X connect 14 0 16 0;
+#X connect 15 0 7 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 19 1 17 0;
+#X restore 960 179 pd load-sound-files;
+#N canvas 0 23 1115 723 sine 0;
+#X floatatom 174 152 5 0 0 0 - - -;
+#X obj 216 195 - 10;
+#X floatatom 251 156 5 0 0 0 - - -;
+#X obj 232 380 mtof;
+#X obj 244 235 clip 0 127;
+#X obj 287 449 osc~;
+#X obj 166 77 inlet;
+#X obj 435 472 outlet~;
+#X obj 465 407 outlet;
+#X obj 376 311 ali.scale 0 127 10 99;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 4 0 9 0;
+#X connect 5 0 7 0;
+#X connect 6 0 0 0;
+#X connect 9 0 8 0;
+#X connect 9 0 3 0;
+#X restore 461 234 pd sine;
+#N canvas 0 23 1182 833 paf 0;
+#X obj 577 630 cos~;
+#X obj 577 607 *~;
+#X obj 620 630 cos~;
+#X obj 676 564 wrap~;
+#X obj 640 564 -~;
+#X obj 620 607 +~;
+#X obj 613 660 -~;
+#X obj 633 692 *~;
+#X obj 595 692 +~;
+#X obj 639 537 samphold~;
+#X floatatom 1051 290 4 0 0 0 - - -;
+#X obj 698 438 / 10;
+#X text 1086 242 center;
+#X obj 698 486 line~;
+#X text 1086 290 fundamental);
+#X obj 698 463 pack 0 50;
+#X obj 578 483 phasor~;
+#X floatatom 578 462 4 0 0 0 - - -;
+#X text 970 292 fundamental;
+#X text 1301 245 index;
+#X text 1301 262 (percent);
+#X floatatom 1301 283 4 0 500 0 - - -;
+#X obj 763 601 *~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array bell-curve 200 float 1;
+#A 0 1.12535e-07 1.54727e-07 2.12059e-07 2.89706e-07 3.94519e-07 5.35535e-07
+7.24633e-07 9.77371e-07 1.31404e-06 1.76105e-06 2.35258e-06 3.13275e-06
+4.15832e-06 5.50199e-06 7.25659e-06 9.54016e-06 1.25023e-05 1.63317e-05
+2.1266e-05 2.76026e-05 3.57128e-05 4.60584e-05 5.92113e-05 7.58768e-05
+9.69224e-05 0.00012341 0.000156634 0.000198167 0.000249912 0.000314163
+0.000393669 0.000491721 0.000612231 0.000759842 0.000940028 0.00115923
+0.00142498 0.00174605 0.00213263 0.00259648 0.00315111 0.00381201 0.00459678
+0.0055254 0.0066204 0.00790705 0.0094136 0.0111714 0.013215 0.0155826
+0.0183156 0.0214592 0.0250621 0.0291763 0.0338573 0.0391639 0.0451575
+0.0519019 0.0594631 0.0679081 0.0773047 0.0877205 0.0992216 0.111872
+0.125732 0.140858 0.1573 0.1751 0.194291 0.214896 0.236928 0.260383
+0.285247 0.311486 0.339053 0.367879 0.397882 0.428956 0.46098 0.493812
+0.527292 0.561244 0.595473 0.62977 0.663916 0.697676 0.730811 0.763074
+0.794216 0.823987 0.852144 0.878447 0.902668 0.924595 0.944027 0.960789
+0.974725 0.985703 0.99362 0.998401 1 0.998401 0.99362 0.985703 0.974725
+0.960789 0.944027 0.924595 0.902668 0.878447 0.852144 0.823987 0.794216
+0.763074 0.730811 0.697676 0.663916 0.62977 0.595473 0.561244 0.527292
+0.493812 0.46098 0.428956 0.397882 0.367879 0.339053 0.311486 0.285247
+0.260383 0.236928 0.214896 0.194291 0.1751 0.1573 0.140858 0.125732
+0.111872 0.0992216 0.0877205 0.0773047 0.0679081 0.0594631 0.0519019
+0.0451575 0.0391639 0.0338573 0.0291763 0.0250621 0.0214592 0.0183156
+0.0155826 0.013215 0.0111714 0.0094136 0.00790705 0.0066204 0.0055254
+0.00459678 0.00381201 0.00315111 0.00259648 0.00213263 0.00174605 0.00142498
+0.00115923 0.000940028 0.000759842 0.000612231 0.000491721 0.000393669
+0.000314163 0.000249912 0.000198167 0.000156634 0.00012341 9.69224e-05
+7.58768e-05 5.92113e-05 4.60584e-05 3.57128e-05 2.76026e-05 2.1266e-05
+1.63317e-05 1.25023e-05 9.54016e-06 7.25659e-06 5.50199e-06 4.15832e-06
+3.13275e-06 2.35258e-06 1.76105e-06 1.31404e-06 9.77371e-07 7.24633e-07
+5.35535e-07 3.94519e-07 2.89706e-07 2.12059e-07 1.54727e-07;
+#X coords 0 1 199 0 200 140 1;
+#X restore 1259 659 graph;
+#N canvas 94 264 600 388 make-table 0;
+#X msg 81 44 bang;
+#X obj 81 73 t b b;
+#X obj 159 142 f;
+#X obj 197 142 + 1;
+#X msg 175 112 0;
+#X obj 81 102 until;
+#X obj 161 177 t f f;
+#X obj 76 306 tabwrite bell-curve;
+#X obj 52 270 expr exp(-$f1*$f1);
+#X obj 63 168 sel 199;
+#X obj 51 241 expr ($f1-100)/25;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 1 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 1;
+#X connect 5 0 2 0;
+#X connect 6 0 10 0;
+#X connect 6 1 7 1;
+#X connect 8 0 7 0;
+#X connect 9 0 5 1;
+#X connect 10 0 8 0;
+#X restore 1323 619 pd make-table;
+#X obj 763 578 cos~;
+#X obj 763 555 -~ 0.25;
+#X obj 763 624 +~ 100;
+#X obj 763 647 tabread4~ bell-curve;
+#X obj 634 721 *~;
+#X text 670 719 <--ring mod step;
+#X text 795 672 waveshaper;
+#X text 1085 260 frequency;
+#X text 1086 273 (tenths of;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array F12-spectrum 259 float 0;
+#X coords 0 0.51 258 -0.008 256 130 1;
+#X restore 1237 412 graph;
+#X text 1291 548 -- frequency --;
+#X obj 633 762 hip~;
+#N canvas 122 211 558 609 fft 0;
+#X obj 23 55 inlet~;
+#X obj 210 303 inlet;
+#X obj 27 215 rfft~;
+#X obj 27 248 *~;
+#X obj 58 248 *~;
+#X obj 27 278 sqrt~;
+#X obj 334 200 block~ 4096 1;
+#X obj 27 304 biquad~ 0 0 0 0 1;
+#X text 91 216 Fourier series;
+#X text 96 269 magnitude;
+#X text 94 254 calculate;
+#X text 21 3 This subpatch computes the spectrum of the incoming signal
+with a (rectangular windowed) FFT. FFTs aren't properly introduced
+until much later.;
+#X text 83 61 signal to analyze;
+#X text 195 255 delay two samples;
+#X text 193 273 for better graphing;
+#X obj 292 79 samplerate~;
+#X obj 240 352 metro 500;
+#X obj 240 329 inlet;
+#X text 293 327 toggle to graph repeatedly;
+#X text 264 303 bang to graph once;
+#X obj 27 328 /~ 4096;
+#X obj 292 54 bang~;
+#X msg 211 413 \; pd dsp 1;
+#X obj 292 102 / 4096;
+#X obj 58 135 osc~;
+#X obj 58 163 +~ 1;
+#X obj 28 188 *~;
+#X text 113 138 hanning window;
+#X obj 254 79 0.5;
+#X obj 240 390 tabwrite~ F12-spectrum;
+#X connect 0 0 26 0;
+#X connect 1 0 22 0;
+#X connect 1 0 29 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 7 0 20 0;
+#X connect 15 0 23 0;
+#X connect 16 0 29 0;
+#X connect 17 0 16 0;
+#X connect 17 0 22 0;
+#X connect 20 0 29 0;
+#X connect 21 0 15 0;
+#X connect 21 0 28 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 1;
+#X connect 26 0 2 0;
+#X connect 28 0 24 1;
+#X restore 687 762 pd fft;
+#X obj 747 741 bng 18 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 747 762 tgl 18 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 768 761 <-- repeatedly;
+#X text 769 741 <-- graph once;
+#X obj 763 529 *~ 0.5;
+#X obj 525 296 osc~;
+#X obj 525 340 *~;
+#X obj 738 354 line~;
+#X msg 739 328 \$1 30;
+#X floatatom 752 291 5 0 0 0 - - -;
+#X obj 595 416 line~;
+#X msg 609 378 \$1 30;
+#X floatatom 927 290 5 0 0 0 - - -;
+#X obj 549 383 +~;
+#X text 793 292 vibrato depth;
+#X obj 445 275 line~;
+#X msg 459 237 \$1 30;
+#X floatatom 459 212 5 0 0 0 - - -;
+#X text 505 212 vibrato freq;
+#X obj 463 169 ali.scale 0 127 0 99;
+#X obj 928 249 mtof;
+#X obj 677 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 745 250 mtof;
+#X obj 725 201 random 40;
+#X obj 1007 239 mtof;
+#X obj 1001 206 random 60;
+#X obj 1208 242 mtof;
+#X obj 597 302 mtof;
+#X obj 591 269 random 20;
+#X obj 1202 209 random 100;
+#X obj 383 90 inlet;
+#X obj 441 623 outlet~;
+#X text 1262 805 0;
+#X text 1453 804 200;
+#X text 1239 547 0;
+#X text 1465 548 2700;
+#X connect 0 0 6 1;
+#X connect 0 0 8 0;
+#X connect 1 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 1;
+#X connect 3 0 7 1;
+#X connect 4 0 1 1;
+#X connect 5 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 1;
+#X connect 8 0 29 0;
+#X connect 9 0 4 0;
+#X connect 9 0 3 0;
+#X connect 10 0 11 0;
+#X connect 11 0 15 0;
+#X connect 13 0 9 0;
+#X connect 15 0 13 0;
+#X connect 16 0 9 1;
+#X connect 16 0 5 1;
+#X connect 16 0 1 0;
+#X connect 16 0 42 0;
+#X connect 17 0 16 0;
+#X connect 22 0 27 0;
+#X connect 25 0 22 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 1;
+#X connect 29 0 36 0;
+#X connect 29 0 37 0;
+#X connect 36 0 69 0;
+#X connect 38 0 37 1;
+#X connect 39 0 37 2;
+#X connect 42 0 26 0;
+#X connect 43 0 44 0;
+#X connect 44 0 51 0;
+#X connect 45 0 44 1;
+#X connect 46 0 45 0;
+#X connect 47 0 46 0;
+#X connect 48 0 51 1;
+#X connect 49 0 48 0;
+#X connect 50 0 49 0;
+#X connect 51 0 16 0;
+#X connect 53 0 43 0;
+#X connect 54 0 53 0;
+#X connect 55 0 54 0;
+#X connect 57 0 58 0;
+#X connect 58 0 50 0;
+#X connect 59 0 61 0;
+#X connect 59 0 63 0;
+#X connect 59 0 66 0;
+#X connect 59 0 67 0;
+#X connect 60 0 47 0;
+#X connect 61 0 60 0;
+#X connect 62 0 10 0;
+#X connect 63 0 62 0;
+#X connect 64 0 21 0;
+#X connect 65 0 55 0;
+#X connect 66 0 65 0;
+#X connect 67 0 64 0;
+#X connect 68 0 57 0;
+#X connect 68 0 59 0;
+#X restore 605 235 pd paf;
+#N canvas 515 214 1165 760 samples 0;
+#X text 572 234 play first 500 msec of "voice-sample" at 0.5 gain and
+normal playspeed;
+#X text 613 273 play "voice-sample" from 400 msec until the end \,
+at 0.5 gain and at 1.1 playspeed;
+#X obj 261 624 ali.sampler;
+#X obj 117 480 `;
+#X obj 117 503;
+#X obj 97 28 inlet;
+#X obj 463 54 inlet;
+#X msg 97 189 echo_a-ball.wav echo_a-ball2.wav echo_ah1.wav echo_ah2.wav
+echo_ah3.wav echo_anana.wav echo_aqua.wav echo_aqua2.wav echo_baba-whisper.wav
+echo_baba.wav echo_baba2.wav echo_baba3.wav echo_baba4.wav echo_baba6.wav
+echo_baby.wav echo_bayi.wav echo_bye1.wav echo_cake.wav echo_cake2.wav
+echo_choo-choo.wav echo_eh.wav echo_elbow.wav echo_giggle.wav echo_giggle2.wav
+echo_grunt.wav echo_hee-hee.wav echo_hi.wav echo_hot.wav echo_i-did-that.wav
+echo_i-did-that2.wav echo_ill-be-ba.wav echo_ill-be-back.wav echo_ill-di-da.wav
+echo_lemon.wav echo_ma-mi-ye.wav echo_mama.wav echo_mama2.wav echo_na-ni-ne.wav
+echo_na.wav echo_nah.wav echo_no.wav echo_outside.wav echo_outside3.wav
+echo_poo-poo.wav echo_uh.wav echo_umm1.wav echo_umm2.wav echo_umm3.wav
+echo_umm4.wav echo_umm5.wav echo_umm6.wav echo_umm7.wav echo_umm8.wav
+echo_ummm.wav echo_wah.wav;
+#X obj 128 432 cyclone/zl nth;
+#X obj 117 141 t b i;
+#X obj 114 96 % 55;
+#X obj 363 681 outlet~;
+#X msg 583 467 play;
+#X obj 581 428 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 621 369 cyclone/tosymbol;
+#X obj 606 567 route list;
+#X obj 591 504 pack s s 0 0 0.7 1 0;
+#X msg 598 318 echo_a-ball.wav;
+#X obj 626 410 t b s;
+#X obj 706 103 list prepend set;
+#X obj 705 142 route list;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 5 0 10 0;
+#X connect 6 0 19 0;
+#X connect 7 0 8 0;
+#X connect 8 0 14 0;
+#X connect 9 0 7 0;
+#X connect 9 1 8 1;
+#X connect 10 0 9 0;
+#X connect 12 0 16 0;
+#X connect 13 0 12 0;
+#X connect 14 0 18 0;
+#X connect 15 0 2 0;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 18 0 12 0;
+#X connect 18 1 16 1;
+#X connect 19 0 20 0;
+#X connect 20 0 7 0;
+#X restore 891 239 pd samples;
+#X obj 629 369 ali.gain~;
+#X obj 463 333 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 300 1;
+#X obj 406 378 ali.gain~;
+#X obj 958 322 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 884 370 ali.gain~;
+#X obj 959 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 992 104 load sound files;
+#X connect 2 0 13 1;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 7 0 12 0;
+#X connect 8 0 7 1;
+#X connect 9 0 12 1;
+#X connect 10 0 15 0;
+#X connect 10 1 11 0;
+#X connect 11 0 13 0;
+#X connect 12 0 17 0;
+#X connect 13 0 1 1;
+#X connect 13 0 1 0;
+#X connect 14 0 15 1;
+#X connect 15 0 1 0;
+#X connect 15 0 1 1;
+#X connect 16 0 17 1;
+#X connect 17 0 1 0;
+#X connect 17 0 1 1;
+#X connect 18 0 9 0;
