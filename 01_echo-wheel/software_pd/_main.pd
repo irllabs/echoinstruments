@@ -1,4 +1,4 @@
-#N canvas 0 25 335 619 12;
+#N canvas 0 25 342 639 12;
 #X obj 30 83 tgl 256 0 record record-in Record 128 128 0 24 -262144
 -262144 -1 0 1;
 #X obj 1069 268 cnv 15 340 80 empty empty gyro 20 12 0 14 -233017 -66577
@@ -49,7 +49,7 @@
 #X connect 4 1 3 0;
 #X connect 6 0 4 0;
 #X restore 454 74 pd OSC;
-#X obj 455 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 455 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 515 130 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -60,7 +60,7 @@
 #X obj 258 456 vsl 15 128 0 1 0 0 volume volume-in Volume 0 -9 0 10
 -262144 -1 -1 12700 1;
 #X obj 458 287 adc~;
-#N canvas 555 25 828 943 audio 0;
+#N canvas 555 25 828 941 audio 0;
 #X obj 525 377 ali.sample-recorder my-buffer;
 #X msg 724 352 record \$1;
 #X floatatom 526 414 5 0 0 0 - - -;
@@ -333,12 +333,12 @@
 #X obj 577 76 unpack 1 1 1;
 #X obj 582 299 ali.scale -1 1 0 127;
 #X obj 618 427 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6704 1;
+-1 -1 0 1;
 #X obj 619 328 ali.scale -1 1 0 127;
 #X obj 640 426 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6343 1;
+-1 -1 0 1;
 #X obj 597 426 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6348 1;
+-1 -1 0 1;
 #X obj 580 213 ali.slide 0.3 0.3;
 #X obj 619 238 ali.slide 0.3 0.3;
 #X obj 664 351 ali.scale -10 10 0 127;
@@ -389,9 +389,9 @@
 -1 -1;
 #X obj 265 862 t f f;
 #X obj 1088 677 hsl 128 15 -4 4 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6276 1;
+-1 -1 0 1;
 #X obj 1086 491 hsl 128 15 0 99 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X msg 756 963 1;
 #X msg 478 961 -1;
 #X obj 510 794 moses 40;
