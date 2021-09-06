@@ -1,6 +1,6 @@
 import AVFoundation
 import SwiftUI
-import Sliders
+// import Sliders
 
 struct ParameterSlider: View {
     var text: String

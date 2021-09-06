@@ -22,7 +22,6 @@
 		41D33CFD25776D5100BD7ED5 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D33CF625776D5100BD7ED5 /* KeyboardView.swift */; };
 		41D33CFE25776D5100BD7ED5 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D33CF725776D5100BD7ED5 /* PlotView.swift */; };
 		41D33CFF25776D5100BD7ED5 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D33CF825776D5100BD7ED5 /* ColorManager.swift */; };
-		41D33D0325776D9800BD7ED5 /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 41D33D0225776D9800BD7ED5 /* Sliders */; };
 		41D33D0625776ED200BD7ED5 /* LaunchScreen.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 41D33D0525776EA600BD7ED5 /* LaunchScreen.storyboard */; };
 		41D4883B257C61500087A0A6 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4883A257C61500087A0A6 /* MotionManager.swift */; };
 		41D4883E257C77150087A0A6 /* MotionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4883D257C77150087A0A6 /* MotionProvider.swift */; };
@@ -56,7 +55,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41D33CE725776C3600BD7ED5 /* AudioKit in Frameworks */,
-				41D33D0325776D9800BD7ED5 /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +136,6 @@
 			name = "Echo Vroom";
 			packageProductDependencies = (
 				41D33CE625776C3600BD7ED5 /* AudioKit */,
-				41D33D0225776D9800BD7ED5 /* Sliders */,
 			);
 			productName = "Echo Vroom";
 			productReference = 41D33CD125776B9100BD7ED5 /* Echo Vroom.app */;
@@ -169,7 +166,6 @@
 			mainGroup = 41D33CC825776B9100BD7ED5;
 			packageReferences = (
 				41D33CE525776C3600BD7ED5 /* XCRemoteSwiftPackageReference "AudioKit" */,
-				41D33D0125776D9800BD7ED5 /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
 			);
 			productRefGroup = 41D33CD225776B9100BD7ED5 /* Products */;
 			projectDirPath = "";
@@ -339,6 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Echo Vroom/Preview Content\"";
 				DEVELOPMENT_TEAM = V9DBGV72NL;
@@ -349,8 +346,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.irl.Echo-Vroom";
+				PRODUCT_BUNDLE_IDENTIFIER = studio.irl.echovroom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,7 +369,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.irl.Echo-Vroom";
+				PRODUCT_BUNDLE_IDENTIFIER = studio.irl.echovroom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,14 +408,6 @@
 				kind = branch;
 			};
 		};
-		41D33D0125776D9800BD7ED5 /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:spacenation/swiftui-sliders.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -425,11 +415,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 41D33CE525776C3600BD7ED5 /* XCRemoteSwiftPackageReference "AudioKit" */;
 			productName = AudioKit;
-		};
-		41D33D0225776D9800BD7ED5 /* Sliders */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41D33D0125776D9800BD7ED5 /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
-			productName = Sliders;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
